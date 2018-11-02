@@ -3,7 +3,61 @@
 </div>
 
 <ng-template #loggedOut>
-  <div class="row col-sm-6" style="max-width:350px;">
+    <!-- <body background-image:url(../images/1.jpg)> -->
+
+      <div class="head">
+        
+        <div class="main">
+          
+          <div class="main-content-agile">
+          
+          
+            <div class="examples">
+              
+            </div>
+          
+          </div>
+          <div class="main-content-right">
+    
+            <div class="sub-main-w3">
+                <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                    <div class="form-group">
+                      <label for="username">Username</label>&nbsp;&nbsp;<span style="color:red" *ngIf="f.submitted && username.invalid">
+                          <span *ngIf="username.errors.required">Username is required</span>
+                        </span>
+                        <span *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+                            Login failed: {{errorMessage}}
+                        </span>
+                      <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+                        required />                      
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Password</label>&nbsp;&nbsp;<span style="color: red" *ngIf="f.submitted && password.invalid">
+                          <span *ngIf="password.errors.required">Password is required</span>
+                          <span *ngIf="password.errors.minlength">Password must be at least 6 characters</span>
+                        </span>
+                      <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+                        required minlength="6" />
+                      
+                    </div>
+                    <div class="form-group">
+                      <button class="btn btn-primary">Login</button>
+                     
+                    </div>
+                  </form>
+            </div>
+            <!-- //newsletter -->
+          </div>
+          <!-- //content -->
+          <div class="clear"></div>
+        </div>
+          
+          <!-- //footer -->
+      </div>
+    
+      
+    
+  <!-- <div class="row col-sm-6" style="max-width:350px;">
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="username">Username</label>
@@ -32,5 +86,5 @@
     <hr />
     <p>Don't have an account?</p>
     <a href="signup" class="btn btn-success">Sign Up</a>
-  </div>
+  </div> -->
 </ng-template>
